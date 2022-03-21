@@ -1,0 +1,35 @@
+.promotion{
+  margin: auto;
+  height: 300px;
+}
+
+.promotion img{
+  width: 200px;
+  height: 300px;
+  border-radius: 5px;
+  cursor: pointer !important;
+}
+/* 
+.promotion li{
+  width: 150px !important;
+  margin-left: 10px;
+} */
+
+.carousel-item{
+  width: 150px;
+}
+
+
+
+/* @media only screen and (max-width: 580px) {
+  .promotion{
+    margin: auto;
+    height: 200px;
+  }
+  
+  .promotion img{
+    width: 180px;
+    height: 250px;
+    border-radius: 5px;
+  }
+} */

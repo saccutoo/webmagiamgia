@@ -1,0 +1,128 @@
+.footer{
+    margin-top: 50px;
+}
+.footer-top{
+   
+}
+
+.footer-top .center{
+    background: white;
+    width: 84%;
+    height: 250px;
+    margin: auto;
+    z-index: 1;
+    position: relative;
+    border-radius: 10px;
+}
+
+.footer-bottom{
+    height: 400px;
+    background: #01115F;
+    position: absolute;
+    margin-top: -120px;
+    width: 100%;
+ }
+
+ .footer-top .center .text{
+    padding: 50px;
+    font-size: 25px;
+    color: #737373;
+}
+.footer-top .center .text .text-click{
+    color: orangered;
+    cursor: pointer !important;
+}
+.footer-top .center .text .text-click:hover{
+    color:black;
+}
+
+.footer-top .center .text .icon svg{
+    width: 40px;
+    margin-top: 10px;
+    cursor: pointer !important;
+}
+.footer-bottom .content{
+    margin: auto;
+    margin-top: 140px;
+    width: 84%;
+}
+.footer-bottom .elementor{
+    width: 30%;
+    float: left;
+}
+
+.footer-bottom .elementor .title{
+   color: white;
+   font-weight: bold;
+   font-size: 25px;
+   text-align: left;
+   padding-left: 20px;
+}
+
+.footer-bottom .elementor img{
+   float: left;
+   width: 200px;
+   padding-left: 20px;
+   margin-left: 10px;
+   margin-top: 20px;
+ }
+
+ .footer-bottom .elementor .menu-ul ul{
+    list-style: none;
+    text-align: left;
+    color: white;
+    font-weight: bold;
+    margin-top: 20px;
+}
+.footer-bottom .elementor .menu-ul li{
+    height: 30px;
+    cursor: pointer !important;
+    font-weight: normal;
+}
+.footer-bottom .elementor .menu-ul li:hover{
+    color:orangered;
+}
+
+.footer-bottom .elementor .menu-ul li svg{
+    width: 25px;
+}
+ 
+@media only screen and (max-width: 890px) { 
+    .footer-top .center .text{
+        font-size: 20px !important;
+    }
+
+}
+
+@media only screen and (max-width: 690px) { 
+    .footer-top .center .text{
+        font-size: 15px !important;
+    }
+
+}
+
+@media only screen and (max-width: 800px) { 
+    .footer-bottom .elementor .title{
+        font-size: 20px;
+     }
+     .footer-bottom .elementor img{
+        width: 150px;
+      }
+      .footer-bottom .elementor .menu-ul ul{
+        font-size: 15px;
+    }
+
+}
+
+@media only screen and (max-width: 580px) { 
+    .footer-bottom .elementor .title{
+        font-size: 12px;
+     }
+     .footer-bottom .elementor img{
+        width: 100px;
+      }
+      .footer-bottom .elementor .menu-ul ul{
+        font-size: 10px;
+        
+    }
+}

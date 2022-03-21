@@ -1,0 +1,26 @@
+.pagination-view{
+    margin-top: 10px;
+    margin-left: 20px;
+}
+.page-item.active{
+    background-color: blue;    
+}
+.pagination-view .page-item{
+    cursor: pointer !important;
+}
+.pagination-center{
+    margin: auto;
+}
+
+.page-item.active .page-link{
+  z-index: 0;
+}
+@media only screen and (max-width: 550px) {
+    .merchant-list .marchant{
+      width:115px ;
+      height: 80px ;
+    }
+    .breadcrumb-text{
+      font-size: 12px !important;
+    }
+  }

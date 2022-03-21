@@ -1,0 +1,31 @@
+.black{
+    background-color: rgb(0,0,0);
+}
+.merchant-list{
+    margin: auto !important;
+    margin-top: 10px !important;
+    margin-bottom: 20px;
+    background-color: rgb(0,0,0);
+}
+.marchant{
+   cursor: pointer !important;
+   margin-bottom: 20px;
+   margin-top: 5px;
+   margin-left: 12px;;
+}
+
+.nav-merchant-list{
+    background-color: rgb(237,226,190);
+}
+.nav-merchant-list .title{
+    color: white;
+    font-weight: bold;
+    font-size: 20px;
+    margin-top: 10px;
+    text-align: center;
+    margin-left: 5px;
+    margin-top: 20px;
+}
+.nav-merchant-list .content{
+    margin-top: 10px;
+}

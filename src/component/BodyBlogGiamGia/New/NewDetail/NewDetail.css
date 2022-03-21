@@ -1,0 +1,39 @@
+.new-detail{  
+    background: white;
+    border-radius: 10px;
+    margin: auto;
+}
+
+.new-detail-title{
+    font-size: 25px;
+    font-weight: bold;
+    height: auto;
+    line-height: 50px;
+    padding-top: 10px;
+}
+
+.new-detail-content{
+    text-align: left;
+    padding: 20px;
+    font-size: 20px;
+}
+
+@media only screen and  (max-width: 1100)  {
+    .new-detail-title{
+        font-size: 20px !important;
+        line-height: 20px;
+    }
+    .new-detail-content{
+        font-size: 15px !important;
+    }
+}
+
+@media only screen and  (max-width: 580px)  {
+    .new-detail-title{
+        font-size: 15px !important;
+        line-height: 15px;
+    }
+    .new-detail-content{
+        font-size: 12px !important;
+    }
+}

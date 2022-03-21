@@ -1,0 +1,17 @@
+#Điều này sẽ tăng tốc quá trình xây dựng Docker
+#vì các phụ thuộc cục bộ của chúng tôi bên trong thư mục 
+#“node_modules” sẽ không được gửi đến daemon Docker
+
+# node_modules
+# build
+# .dockerignore
+# Dockerfile
+# Dockerfile.dev
+
+node_modules
+npm-debug.log
+build
+.dockerignore
+**/.git
+**/.DS_Store
+**/node_modules

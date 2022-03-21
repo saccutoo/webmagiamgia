@@ -1,0 +1,27 @@
+.breadcrumb-content{
+    margin: auto !important;
+    line-height: 50px;
+}
+.breadcrumb-text{
+    font-size: 15px;
+}
+.breadcrumb-item.active{
+    font-weight: bold;   
+    color: black;
+}
+.breadcrumb-item.hover{
+    color: blue;
+    
+}
+.breadcrumb-item.hover:hover{
+    color: red;
+}
+.breadcrumb-item{
+    cursor:  pointer !important;
+}
+.main-content{
+    background-color: rgb(237,226,190);
+}
+.breadcrumb-content{
+    font-weight: bold;
+}

@@ -1,0 +1,15 @@
+
+@media only screen and (max-width: 580px) {
+  .breadcrumb-content .breadcrumb{
+    margin-left: 25px;
+  }
+  .breadcrumb-content .breadcrumb-text{
+    font-size: 9px !important;
+  }
+}
+
+@media only screen and (max-width: 767px) {
+  .breadcrumb-content .breadcrumb{
+    margin-left: 25px;
+  }
+}
