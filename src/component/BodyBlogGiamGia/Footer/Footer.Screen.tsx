@@ -3,9 +3,15 @@ import { connect, useDispatch } from "react-redux";
 import {getParam,updateParam} from "../../../redux/actions/Param.Action";
 import FooterAdapter  from "./Footer.Adapter";
 import "./Footer.css"
-import { Facebook,Envelope } from '../../../config/Icon.Screen';
+import { Facebook  } from '../../../config/Icon.Screen';
 import { useHistory } from 'react-router-dom';
-import {IParam} from '../../../interface/Param'
+import {IParam} from '../../../interface/Param';
+import { faEnvelope } from '@fortawesome/free-solid-svg-icons';
+import { faFacebook } from "@fortawesome/free-brands-svg-icons"
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import imgShoppe from '../../../images/1.shopee.png'
+import imgLazada from '../../../images/1.lazada.png'
+import imgAccess from '../../../images/1.AT_.png'
 function FooterScreen (props: any){ 
     const history = useHistory();
     const {
@@ -71,6 +77,7 @@ function FooterScreen (props: any){
                             <br></br>
                             <span className="icon">
                                  <Facebook onClick={()=>viewFacebook()}></Facebook>
+                                 {/* <FontAwesomeIcon icon={faFacebook} onClick={()=>viewFacebook()}/> */}
                             </span>
                         </div>
                   </div>
@@ -84,9 +91,9 @@ function FooterScreen (props: any){
                                   </span>
                             </div>
                             <div className="images">
-                                  <img src="https://eu94j8zj53i.exactdn.com/wp-content/uploads/2021/06/1.shopee.png"></img>
-                                  <img src="https://eu94j8zj53i.exactdn.com/wp-content/uploads/2021/06/1.lazada.png?strip=all&lossy=1&ssl=1"></img>
-                                  <img src="https://eu94j8zj53i.exactdn.com/wp-content/uploads/2021/06/1.AT_.png?strip=all&lossy=1&ssl=1"></img>
+                                  <img src={imgShoppe}></img>
+                                  <img src={imgLazada}></img>
+                                  <img src={imgAccess}></img>
                             </div>
                       </div>
                       <div className="elementor">
@@ -110,8 +117,9 @@ function FooterScreen (props: any){
                             </div>
                             <div className="menu-ul">
                                  <ul>
-                                    <li>Email: admin@blogmagiam.com</li>
+                                    <li><i> <FontAwesomeIcon icon={faEnvelope} /></i> admin@blogmagiam.com</li>
                                  </ul>
+                                 
                             </div>
                       </div>
                   </div>

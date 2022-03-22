@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { connect, useDispatch } from "react-redux";
-import img from '../../../../src/274000623_240771864930781_4618028934102902937_n.png'
+import img from '../../../images/274000623_240771864930781_4618028934102902937_n.png'
 import {
     BrowserRouter as Router,
     Switch,
