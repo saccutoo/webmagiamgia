@@ -5,6 +5,7 @@ import MerchantScreen from '../MerchantList/Merchant/Merchant.Screen'
 import './MerchantList.css';
 import PromotionScreen from '../Promotion/Promotion.Screen'
 import NewPromotionScreen from '../New/NewPromotion/NewPromotion.Screen'
+import {getMerchantListDatabase,updateMerchantListDatabase,addMerchantListDatabase} from "../../../redux/actions/MerchantListDatabase.Actionts";
 
 function MerchantListScreen(props: any) {
     const {
@@ -12,6 +13,9 @@ function MerchantListScreen(props: any) {
     } = MerchantListAdapter();
     return (
         <> 
+             {
+                <title>Blog Mã Giảm - Săn hàng giảm giá, mua sắm thông minh </title>
+             } 
             <PromotionScreen></PromotionScreen>
             
             <div className="">
@@ -26,9 +30,10 @@ function MerchantListScreen(props: any) {
                             </div>   
                             <div className="row content">
                             {
-                                    merchantList!=null &&
-                                    merchantList.map(function(item:any, i:number){
+                                    props!=null &&  props.merchantListDatabase && props.merchantListDatabase.datas &&
+                                    props.merchantListDatabase.datas.map(function(item:any, i:number){
                                         if(item){
+                                            item.merchant=item.login_name;
                                             return <MerchantScreen merchant={item}></MerchantScreen>
                                         }
                                     })                      
@@ -43,4 +48,17 @@ function MerchantListScreen(props: any) {
     )
 }
 
-export default MerchantListScreen;
+//export default MerchantListScreen;
+const mapStateToProps = (state: any) => {
+    return {
+        merchantListDatabase:state.merchantListDatabaseReducer
+    }
+  }
+const mapDispatchActionToProps = (dispatch: any) => {
+    return {
+      // dispatching plain actions
+      getMerchantListDatabase: () => dispatch(getMerchantListDatabase),
+    }
+  }
+
+  export default connect(mapStateToProps, mapDispatchActionToProps)(MerchantListScreen)

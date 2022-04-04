@@ -41,9 +41,8 @@ function App() {
        <>
          <Router>
             <Switch>   
-              <Route path="/"  component={BodyBlogGiamGiaScreen}>
-              </Route>  
-              <Route path="/:menu/:ishasbreadcrumb/:merchantcode"  component={BodyBlogGiamGiaScreen}></Route>  
+              <Route path="/"  component={BodyBlogGiamGiaScreen}></Route>  
+              <Route path="/:menu/:ishasbreadcrumb/:merchantcode"  component={BodyBlogGiamGiaScreen}></Route> 
               <Redirect from="/" to="/" exact></Redirect>
               <Route path="*" render={BodyBlogGiamGiaScreen}></Route>
             </Switch>

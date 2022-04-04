@@ -12,7 +12,7 @@ const CouponListAdapter = () => {
 
     const getCouponByMerchant= (is_next_day_coupon:boolean,keyword:string,merchant:string,limit:number,page:number,marchant:string)=>{
         (async () => {
-            const datas= await CouponListService().getInstance().getCouponListByMerchant(is_next_day_coupon,keyword,merchant,limit,page,marchant);  
+            const datas= await CouponListService().getInstance().getCouponFilterByMerchant(is_next_day_coupon,keyword,merchant,limit,page,marchant);  
             if (datas!=null && datas.StatusCode==0 && datas.Data!=null && datas.Data.length>0){
                 setCouponList([]);
                 setCouponList(datas.Data);

@@ -8,18 +8,23 @@ const DropDownMerchantAdapter = () => {
     const [merchantList, setMerchantList] = useState<any>([]);
     
     useEffect(() => {
-        (async () => {
-               const datas= await MerchantListService().getInstance().getAllMerchantListFromDatabase();  
-               if (datas!=null && datas.StatusCode==0 && datas.Data!=null && datas.Data.length>0){
-                    setMerchantList(datas.Data);
-                    dispatch(addMerchantListDatabase(datas.Data));  
-               }         
-        })();
+        run();
     }, []);
     
+    const run = () => {
+        (async () => {
+            const datas= await MerchantListService().getInstance().getAllMerchantListFromDatabase();  
+            if (datas!=null && datas.StatusCode==0 && datas.Data!=null && datas.Data.length>0){
+                 setMerchantList(datas.Data);
+                 dispatch(addMerchantListDatabase(datas.Data));  
+            }         
+        })();
+ 
+    }
 
     return {
         merchantList, setMerchantList,
+        run:run
     }
 }
 

@@ -34,8 +34,7 @@ function BodyBlogGiamGiaScreen (props: any){
 
                 <Route path="/:menu/:ishasbreadcrumb" component={MainContent} ></Route> 
                                
-                <Route path="/" component={MerchantListScreen} exact>   
-                </Route>                      
+                <Route path="/" component={MerchantListScreen} exact></Route>                      
             </Switch>
 
             <FooterScreen></FooterScreen>

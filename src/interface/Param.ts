@@ -3,5 +3,6 @@ export interface IParam {
     Menu?:string,
     Merchantcode?:string,
     CodeNew?:string,
-    Id?:number
+    Id?:number,
+    DisplayName?:string
 };

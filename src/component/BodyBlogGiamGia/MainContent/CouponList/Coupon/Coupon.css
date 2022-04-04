@@ -1,5 +1,18 @@
+.coupon-content-title{
+  margin: auto;
+  background: white;
+  border-radius: 5px;
+  text-align: left;
+}
+
+.coupon-content-title .content-title{
+  padding: 10px;
+  padding-bottom: 5px;
+}
+
 .coupon{
   margin: auto;
+  margin-top: 10px;
 }
 .coupon-header{
   font-weight: bold;
@@ -170,6 +183,21 @@
 }
 
 
+@media only screen and (max-width: 897px) {
+  .coupon-item .right-content{
+    font-size: 13px;
+  }
+}
+
+@media only screen and (max-width: 814px) {
+  .coupon-item-left .time_left{
+    font-size: 10px;
+  }
+  .time-icon .icon{
+    line-height: 20px;
+  }
+}
+
 @media only screen and (max-width: 580px) {
   .coupon-item .right-content{
     font-size: 13px;
@@ -177,5 +205,21 @@
   .coupon-item-left .time_left
   {
     line-height: 22px !important;
+  }
+}
+
+@media only screen and (max-width: 395px) {
+  .coupon-item .right-content{
+    font-size: 10px;
+  }
+
+  .coupon-item-left .time_left{
+    font-size: 8px;
+  }
+}
+
+@media only screen and (max-width: 360px) {
+  .coupon-item-left .time_left{
+    font-size: 7px;
   }
 }

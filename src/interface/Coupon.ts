@@ -39,6 +39,8 @@ export interface ICountpon {
     shop_id?: number,
     start_time?: Date,
     status?: boolean,
-    time_left?: string
+    time_left?: string,
+    coupon_code?: string,
+    type?: string
 
 };

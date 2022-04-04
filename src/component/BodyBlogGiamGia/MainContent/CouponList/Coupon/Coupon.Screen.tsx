@@ -9,9 +9,14 @@ import ReactLoading from "react-loading";
 import CouponMerchantScreen from "../CouponMerchant/CouponMerchant.Screen";
 import {getMerchantListDatabase,updateMerchantListDatabase,addMerchantListDatabase} from "../../../../../redux/actions/MerchantListDatabase.Actionts";
 import {IMerchantList} from "../../../../../interface/MerchantList";
+import InnerHTML from 'dangerously-set-html-content'
+import { useHistory } from 'react-router-dom';
+import { MENU_TYPE } from '../../../../../config/AllStatusType';
+import { IParam } from '../../../../../interface/Param';
 
 function CouponScreen (props: any){
-
+  const history = useHistory();
+  const dispatch = useDispatch();
     const {
         
     } = CouponAdapter();
@@ -19,29 +24,19 @@ function CouponScreen (props: any){
     const [index, setIndex] = useState(0);
     const [isLoading, setIsLoading] = useState(1);
     const [value, setValue] = useState(props.keyword);
+    const [merchantDatabase, setMerchantDatabase] = useState<IMerchantList>();
 
     useEffect(() => {
       if(props.couponList!=null && props.couponList.length>0){
-        // let index:number=1;
-        // const countCouponList=props.couponList.length;
-        // let datas=[];
-        // let dataNews=[];
-        // for(var i=0;i<props.couponList.length;i++){
-          
-        //   if(i<=index){
-        //     datas.push(props.couponList[i]);           
-        //   }
-
-        //   if(i==index){    
-        //     dataNews.push(datas);
-        //     datas=[];
-        //     index=index+2;
-        //   }
-        // }
-        // if(dataNews.length>0){
-        //   setCoupons(dataNews);
-        // }
         setCoupons(props.couponList);
+      } 
+      if(props.merchantListDatabase!=null && props.merchantListDatabase.datas!=null && props.merchantListDatabase.datas.length>0 ){
+        const result =  props.merchantListDatabase.datas.map(function(item:IMerchantList, index:number){
+          if(item && item.login_name==props.param.Merchantcode){
+            setMerchantDatabase(item);
+          }
+        })
+ 
       } 
       timeoutFuntion();
     }, []);
@@ -58,7 +53,7 @@ function CouponScreen (props: any){
           timeoutFuntion();
        }
         setIsLoading(0);
-      }, 1000);
+      }, 500);
     }
 
     const handleInputChange=(event:any) =>{
@@ -80,14 +75,27 @@ function CouponScreen (props: any){
       props.getCouponByMerchant(false,value,props.id,props.pageSize,pagenew,props.merchantcode);
     }
 
+
     return (
         <>
+            <div  className="col-md-10 coupon-content-title">
+               {
+                 merchantDatabase && merchantDatabase?.description1
+                 ? <>
+                      <div className="content-title">
+                         <InnerHTML html={merchantDatabase?.description1 ? merchantDatabase?.description1 :""} /> 
+                      </div>
+                   </>
+                 :""
+               }
+            </div>
             <div className="col-md-10 coupon">
                 <div className="coupon-left">
                   <div className="coupon-header">
-                      <span >TÌM KIẾM MÃ GIẢM  {props.merchantcode.toUpperCase()}</span>
+                      {/* <span >TÌM KIẾM MÃ GIẢM GIÁ {props.merchantcode.toUpperCase()}</span> */}
+                      <span >MÃ GIẢM GIÁ {props.merchantcode.toUpperCase()}</span>
                   </div>
-                  <div className="coupon-filter row">
+                  {/* <div className="coupon-filter row">
                     <div className="coupon-input col-md-12">
                       <div className="coupon-input-div">
                         <div className="div-input">
@@ -103,7 +111,7 @@ function CouponScreen (props: any){
                         </div>                           
                       </div>
                     </div>
-                  </div>
+                  </div> */}
 
                   <div className="coupon-body col-md-12 row">
                   {                   
@@ -125,7 +133,6 @@ function CouponScreen (props: any){
 
                   </>
                 </div>
-
                 <div className="coupon-merchant-right">
                     <div className="coupon-merchant-list">                
                         {

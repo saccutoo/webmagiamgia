@@ -1,12 +1,15 @@
 import { useEffect, useState } from "react";
 import { connect, useDispatch } from "react-redux";
 import MerchantAdapter from './Merchant.Adapter'
+import {getMerchantListDatabase,updateMerchantListDatabase,addMerchantListDatabase} from "../../../../redux/actions/MerchantListDatabase.Actionts";
 
 function MerchantScreen(props: any) {
     
     const {
         clickMerchant:clickMerchant
     } = MerchantAdapter();
+
+
 
     return (
         <> 
@@ -22,5 +25,4 @@ function MerchantScreen(props: any) {
         </>
     )
 }
-
 export default MerchantScreen;

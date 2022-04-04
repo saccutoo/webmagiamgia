@@ -31,7 +31,8 @@ function CouponDetailScreen (props: any){
   // }, []);
 
   const showCode = (data: any) => {
-    const value=merchant.coupons!=null && merchant.coupons.length>0 ? merchant.coupons[0].coupon_code : "123"
+    debugger
+    const value=merchant.coupon_code ? merchant.coupon_code:""
     navigator.clipboard.writeText(value?.toString());
     toast.success("Copy mã thành công!");
     setIsShowCode(data);
@@ -40,7 +41,6 @@ function CouponDetailScreen (props: any){
     }, 500);
 
     (async () => {
-      debugger
       const res = await axios.get('https://geolocation-db.com/json/');       
       var newData:IClickMerchant={
         aff_link:merchant.aff_link,
@@ -96,9 +96,6 @@ function CouponDetailScreen (props: any){
                              <div className="decription-title">
                                   <span > Mô tả chi tiết </span>
                              </div>
-                             <div className="decription-content">
-                                  <span > {merchant.content} </span>
-                             </div>
 
                              <div className="decription-content">
                                   <span > {merchant.content} </span>
@@ -118,7 +115,7 @@ function CouponDetailScreen (props: any){
                                   {
                                     isShowCode==true ?                                   
                                       <div className="code">
-                                      <span>{merchant.coupons !=null && merchant.coupons.length>0 && merchant.coupons[0].coupon_code}</span>
+                                      <span>{merchant.coupon_code}</span>
                                       </div>
                                     :
                                     ""

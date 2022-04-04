@@ -7,6 +7,8 @@ import { IMerchantList } from "../../../../interface/MerchantList";
 import CouponScreen from "./Coupon/Coupon.Screen";
 import ReactLoading from "react-loading";
 import MerchantListAdapter from '../../MerchantList/MerchantList.Adapter';
+import {getMerchantListDatabase,updateMerchantListDatabase,addMerchantListDatabase} from "../../../../redux/actions/MerchantListDatabase.Actionts";
+import DropDownMerchantAdapter from "../../NavBar/DropDownMerchant/DropDownMerchant.Adapter";
 
 
 function CouponListScreen (props: any){
@@ -21,34 +23,44 @@ function CouponListScreen (props: any){
         id, setId
     } = CouponListAdapter();
 
+    
+
     const {
         merchantList, setMerchantList,
         getMerchantList:getMerchantList
     } = MerchantListAdapter();
 
+
+    const {
+      run:run
+  } = DropDownMerchantAdapter();
+
     useEffect(() => {
-          if(props.merchantList!=null && props.merchantList.datas!=null && props.merchantList.datas.length>0){
+          // if(props.merchantList!=null && props.merchantList.datas!=null && props.merchantList.datas.length>0){
+          //   setKeyword("");
+          //   setPage(1);
+          //   let data = props.merchantList.datas.filter((x:IMerchantList)=>{ return x.login_name==props.merchantcode});
+          //   if(data!=null && data.length>0){
+          //       setId(data[0].Id);
+          //       getCouponByMerchant(false,keyword,data[0].Id,pageSize,1,props.merchantcode);
+          //   }
+          // }   
+          // if (props.merchantcode!=null && props.merchantcode!='' && props.merchantList.length==0){
+          //   getMerchantList();
+          // }
+          if(props.merchantListDatabase!=null && props.merchantListDatabase.datas!=null && props.merchantListDatabase.datas.length>0){
             setKeyword("");
             setPage(1);
-            let data = props.merchantList.datas.filter((x:IMerchantList)=>{ return x.login_name==props.merchantcode});
+            let data =props.merchantListDatabase.datas.filter((x:IMerchantList)=>{ return x.login_name==props.merchantcode});
             if(data!=null && data.length>0){
                 setId(data[0].Id);
                 getCouponByMerchant(false,keyword,data[0].Id,pageSize,1,props.merchantcode);
             }
           }   
-          if (props.merchantcode!=null && props.merchantcode!='' && props.merchantList.length==0){
-            getMerchantList();
+          if (props.merchantListDatabase!=null && props.merchantcode!='' && props.merchantListDatabase.datas.length==0){
+            run();
           }
     }, [props.merchantcode,props.merchantList]);
-
-  // useEffect(() => {
-  //       if(props.merchantList!=null && props.merchantList.datas!=null && props.merchantList.datas.length>0){
-  //         let data = props.merchantList.datas.filter((x:IMerchantList)=>{ return x.login_name==props.merchantcode});
-  //         if(data!=null){
-  //             getCouponByMerchant(false,keyword,data[0].Id,pageSize,page,props.merchantcode);
-  //         }
-  //       }     
-  // }, [page,keyword]);
 
 
     return (
@@ -76,6 +88,7 @@ const mapStateToProps = (state: any) => {
     return {
         param: state.paramReducer,
         merchantList: state.merchantListReducer,
+        merchantListDatabase:state.merchantListDatabaseReducer
     }
   }
 
@@ -85,7 +98,8 @@ const mapDispatchActionToProps = (dispatch: any) => {
       // dispatching plain actions
       getParam: () => dispatch(getParam),
       getMerchantList: () => dispatch(getMerchantList),
-      updateMerchantList: (value: any) => dispatch(updateMerchantList(value))
+      updateMerchantList: (value: any) => dispatch(updateMerchantList(value)),
+      getMerchantListDatabase: () => dispatch(getMerchantListDatabase),
     }
   }
 

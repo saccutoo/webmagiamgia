@@ -12,7 +12,8 @@ import { IMerchantList } from "../../../../../../interface/MerchantList"
 import { IClickMerchant} from "../../../../../../interface/ClickMerchant"
 import { MODAL_TYPE } from "../../../../../../config/AllStatusType";
 import axios from 'axios'
-
+import { COUPON_TYPE } from "../../../../../../config/AllStatusType";
+import { ICountpon } from "../../../../../../interface/Coupon";
 
 function CouponItemScreen (props: any){
   const [remain1, seRemain1] = useState<string>();
@@ -34,7 +35,7 @@ function CouponItemScreen (props: any){
   }, []);
 
   const showCode = (data: any) => {
-    navigator.clipboard.writeText(props.datas.coupons[0].coupon_code);
+    navigator.clipboard.writeText(props.datas.coupon_code);
     toast.success("Copy mã thành công!");
     setIsShowCode(data);
     setTimeout(() => {
@@ -49,8 +50,8 @@ function CouponItemScreen (props: any){
       };
       addClickMerchant(newData);       
     })();
-    
   }
+
 
   const viewDetail = (data: IMerchantList) => {
     props.updateModal({IsOpen:true,Content:null,ClassName:"modal-common modal-medium modal-detail-coupon",Data:data,Type:MODAL_TYPE.COUPON_DETAL})
@@ -87,12 +88,29 @@ function CouponItemScreen (props: any){
                                   </span>
                                 </div>
                                 <div className="time_left">
-                                  <span >{props.datas.time_left} </span>
+                                  <span style={{color:"blue"}}>{props.datas.time_left} </span>
                                 </div>
                               </div>
+                              {/* {
+                                props.datas.type==COUPON_TYPE.COUPON_ACCESS_TRADE
+                                ? 
+                                <div className="remain-title" >
+                                   <span>Còn lại <span style={{color:"blue"}}>{props.datas.remain}%</span> </span>
+                                </div>
+                                :""
+                              } */}
                               <div className="remain-title">
                                   <span>Còn lại <span style={{color:"blue"}}>{props.datas.remain}%</span> </span>
                               </div>
+
+                             {/* {
+                                props.datas.type==COUPON_TYPE.COUPON_ACCESS_TRADE
+                                ? 
+                                <div className="progress">
+                                  <div className="progress-bar" style={{width:remain1}}></div>
+                                </div>
+                                :""
+                              } */}
                               <div className="progress">
                                 <div className="progress-bar" style={{width:remain1}}></div>
                               </div>
@@ -107,7 +125,7 @@ function CouponItemScreen (props: any){
                             </div>
                              :  
                              <div className="bottom-code">
-                               <span>{props.datas.coupons[0].coupon_code }</span>
+                               <span>{props.datas.coupon_code }</span>
                              </div>
                           }
                          

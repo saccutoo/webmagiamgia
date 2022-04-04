@@ -26,7 +26,6 @@ function MainContentScreen (props: any){
             Merchantcode:props.match.params.code,
             CodeNew:props.match.params.code        
           };
-          
         props.updateParam(initial_state);
     }, []);
 
@@ -35,9 +34,11 @@ function MainContentScreen (props: any){
             <div className="">
                 <div className="main-content"> 
                 {
-                    props.param.Ishasbreadcrumb !=undefined &&  props.param.Ishasbreadcrumb!=null &&  props.param.Ishasbreadcrumb=="true" ?  <BreadCrumbScreen> </BreadCrumbScreen> : ""
+                    props.param.Ishasbreadcrumb !=undefined &&  props.param.Ishasbreadcrumb!=null &&  props.param.Ishasbreadcrumb=="true" 
+                    ?  <BreadCrumbScreen> </BreadCrumbScreen> 
+                    : ""
                 }
-
+               
                 {
                      props.param.Ishasbreadcrumb !=undefined &&  
                      props.param.Ishasbreadcrumb!=null &&  

@@ -11,9 +11,13 @@
     />
     <link rel="apple-touch-icon" href="./130289565_194968775632310_804802940035357581_n.png" />
 
-    <title>Blog Mã Giảm - Săn hàng giảm giá, mua sắm thông minh   </title>
     <script data-ad-client="ca-pub-3623220302742155" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-    <script  src="./service-worker.js"></script>
+    <script  src="../service-worker.js"></script>
+    
+    <script src="../jquery/jquery-3.6.0.js"></script>
+    <link rel="stylesheet" href="../loadingModal/jquery.loadingModal.min.css" />
+    <script src="../loadingModal/jquery.loadingModal.min.js"></script>
+    
     <!-- Global site tag (gtag.js) - Google Ads: 838977727 -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=AW-838977727"></script>
   <script>
@@ -66,8 +70,33 @@
     src="https://www.facebook.com/tr?id=644291723468269&ev=PageView&noscript=1"
   /></noscript>
   <!-- End Meta Pixel Code -->
+
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-216604116-1">
+</script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-216604116-1');
+</script>
+
+<script async custom-element="amp-auto-ads"
+        src="https://cdn.ampproject.org/v0/amp-auto-ads-0.1.js">
+</script>
+
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3623220302742155"
+     crossorigin="anonymous"></script>
+
+     <link href="../loadingModal/jquery.loadingModal.min.css"/>
+     <script src="../jquery/jquery-3.6.0.js"></script>
+     <script src="../loadingModal/jquery.loadingModal.min.js"></script>
   </head>
-  <body>
+  <body id="body">
+    <amp-auto-ads type="adsense"
+      data-ad-client="ca-pub-3623220302742155">
+    </amp-auto-ads>
 
     <div id="root"></div>
 
@@ -78,7 +107,7 @@
     </div>
     <!-- <div class="_9a05df64fe" data-wi="6219b9aec4944d003e10502c">Loading...</div> -->
     <script src="https://api.trackpush.com/sdk/native/v1.js?pid=0QdBcFhZFLqNKlEJG0H--g&class=_9a05df64fe"></script>
-    <div class="zalo-chat-widget" data-oaid="519867560528086771" data-welcome-message="Rất vui khi được hỗ trợ bạn!" data-autopopup="0" data-width="" data-height=""></div>
+    <div class="zalo-chat-widget" data-oaid="519867560528086771" data-welcome-message="Rất vui khi được hỗ trợ bạn!" data-autopopup="3" data-width="" data-height=""></div>
 
   </body>
   <!-- Messenger Plugin chat Code -->
@@ -108,3 +137,13 @@
   </script>
   <script src="https://sp.zalo.me/plugins/sdk.js"></script>
   </html>
+  <script>
+    $('#body').loadingModal({
+        position: 'auto',
+        text: '',
+        color: '#fff',
+        opacity: '0.3',
+        backgroundColor: 'red',
+        animation: 'foldingCube'
+    });
+</script>

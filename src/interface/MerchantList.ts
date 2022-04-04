@@ -9,6 +9,9 @@ export interface IMerchantList {
     logo_coupon?: string,
     total_offer?: Number,
     is_hide?: Number,
+    description1?: string,
+    description2?: string,
+    description3?: string,
 };
 
 export interface IListMerchantList {

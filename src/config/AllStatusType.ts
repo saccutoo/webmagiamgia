@@ -11,3 +11,9 @@ export const MODAL_TYPE={
     COUPON_DETAL : "COUPON_DETAL",
 }
 
+export const COUPON_TYPE={
+    //Api url test
+    COUPON_ACCESS_TRADE : "COUPON_ACCESSTRADE",
+    COUPON_BLOGMAGIAM : "COUPON_BLOGMAGIAM",
+}
+

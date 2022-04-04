@@ -5,10 +5,12 @@ import { getParam } from "../../../../redux/actions/Param.Action";
 import  NewDetailAdapter  from "./NewDetail.Adapter"
 import './NewDetail.css'
 import InnerHTML from 'dangerously-set-html-content'
-
+import { MERCHANT_NAME,MERCHANT_LOGIN_NAME } from "../../../../config/MerchantName";
 function NewDetailScreen (props: any){
 
-    const {
+  const [typeMerchant, setTypeMerchant] = useState<any>();
+
+  const {
       news, setNews,
       getNewById:getNewById,
       getNewByCode:getNewByCode
@@ -18,13 +20,19 @@ function NewDetailScreen (props: any){
 
     
     useEffect(() => {
-      getNewByCode(props.param.CodeNew);    
+      getNewByCode(props.param.CodeNew); 
+         
     },[props.param.CodeNew]);
 
 
     return (
         <>
-           
+           {
+             news && news?.title 
+             ?
+             <title> {news?.title } </title>
+             :""
+           }
            <div className="col-md-6 new-detail">
                 <div className="new-detail-title">
                     <span>{news?.title}</span>

@@ -3,12 +3,15 @@ import { connect, useDispatch } from "react-redux";
 import { useCookies } from "react-cookie";
 import AuthenService from './service/Authen.Service'
 import { IUser } from "./interface/User";
+import showLoading from "./helper/function/LoadingModal";
 
 const AppAdapter = () => {
     const dispatch = useDispatch();
     const [cookiesUser, setCookieUser] = useCookies(['user']);
     const [userName, setUserName] = useState<any>();
+
     useEffect(() => {   
+      
       if(!cookiesUser || !cookiesUser?.user){
         (async () => {
             const data= await AuthenService().getInstance().loginWeb(); 
@@ -19,11 +22,14 @@ const AppAdapter = () => {
                     localStorage.setItem("token",data.Data.token)
                     localStorage.setItem("user_name",data.Data.user_name);
                     setUserName(data.Data.user_name);
+                    showLoading(false);
             }         
         })();
       }
       else{
         setUserName(cookiesUser?.user.user_name);
+        showLoading(false);
+
       }  
     }, []);
 
