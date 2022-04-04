@@ -33,7 +33,7 @@ const MerchantListAdapter = () => {
 
     return {
         merchantList, setMerchantList,
-        getMerchantList:getMerchantList
+        getMerchantList:getMerchantList,
     }
 }
 

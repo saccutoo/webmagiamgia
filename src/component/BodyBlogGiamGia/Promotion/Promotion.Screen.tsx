@@ -14,7 +14,10 @@ import {
   import "./Promotion.css"
   import Carousel from 'react-multi-carousel';
   import 'react-multi-carousel/lib/styles.css';
-
+  import {
+    updatePromotion,
+    getPromotion
+} from "../../../redux/actions/Promotion.Action";
 
 function PromotionScreen (props: any){
   const responsive = {
@@ -57,11 +60,13 @@ function PromotionScreen (props: any){
   };
 
     const {
-        promotions, setPromotions
+        runAuto:runAuto
     } = PromotionAdapter();
     
     useEffect(() => {
-            
+      if(props.promotion==null || props.promotion.datas==null || props.promotion.datas.length==0){
+        runAuto();
+      }    
     },[]);
 
     const openLink = (link:string) => {
@@ -81,8 +86,8 @@ function PromotionScreen (props: any){
                     autoPlaySpeed={4000}
                   >
                        {
-                          promotions && promotions.length>0 &&
-                          promotions.map((item:INew, index:number) => 
+                          props.promotion && props.promotion.datas.length>0 &&
+                          props.promotion.datas.map((item:INew, index:number) => 
                              <img src={item.image} onClick={()=>openLink(item.link ? item.link  :"")}></img>
                           )
                        }
@@ -98,6 +103,7 @@ function PromotionScreen (props: any){
 const mapStateToProps = (state: any) => {
     return {
         param: state.paramReducer,
+        promotion:state.PromotionReducer
     }
   }
 
@@ -106,7 +112,8 @@ const mapDispatchActionToProps = (dispatch: any) => {
     return {
       // dispatching plain actions
       getParam: () => dispatch(getParam),
-      updateParam: (value: any) => dispatch(updateParam(value))
+      updateParam: (value: any) => dispatch(updateParam(value)),
+      getPromotion: () => dispatch(getPromotion)
     }
   }
 

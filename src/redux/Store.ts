@@ -3,6 +3,7 @@ import ModalReducer from "./reducers/Modal.Reducers"
 import ParamReducer from "./reducers/Param.Reducers"
 import MerchantListReducer from "./reducers/MerchantList.Reducers"
 import MerchantListDatabaseReducer from "./reducers/MerchantListDatabase.Reducers"
+import PromotionReducer from "./reducers/Promotion.Reducers"
 
 import { combineReducers,createStore,applyMiddleware } from 'redux';
 import createSagaMiddleware from 'redux-saga'
@@ -17,7 +18,8 @@ const rootReducer = combineReducers({
     modalReducer:ModalReducer,
     paramReducer:ParamReducer,
     merchantListReducer:MerchantListReducer,
-    merchantListDatabaseReducer:MerchantListDatabaseReducer
+    merchantListDatabaseReducer:MerchantListDatabaseReducer,
+    PromotionReducer:PromotionReducer
 });
 
 //dev

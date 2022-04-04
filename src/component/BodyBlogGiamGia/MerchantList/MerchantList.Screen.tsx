@@ -8,9 +8,9 @@ import NewPromotionScreen from '../New/NewPromotion/NewPromotion.Screen'
 import {getMerchantListDatabase,updateMerchantListDatabase,addMerchantListDatabase} from "../../../redux/actions/MerchantListDatabase.Actionts";
 
 function MerchantListScreen(props: any) {
-    const {
-        merchantList, setMerchantList
-    } = MerchantListAdapter();
+    // const {
+    //     merchantList, setMerchantList
+    // } = MerchantListAdapter();
     return (
         <> 
              {

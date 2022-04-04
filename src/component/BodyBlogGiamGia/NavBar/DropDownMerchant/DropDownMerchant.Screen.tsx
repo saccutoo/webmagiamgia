@@ -12,15 +12,23 @@ import {
   import { IMerchantList } from "../../../../interface/MerchantList";
   import { IParam } from "../../../../interface/Param";
   import DropDownMerchantAdapter  from "./DropDownMerchant.Adapter";
+import { getMerchantListDatabase } from "../../../../redux/actions/MerchantListDatabase.Actionts";
   const delay = 5;
 
 function DropDownMerchantScreen (props: any){
     const history = useHistory();
 
     const {
-        merchantList, setMerchantList
+        merchantList, setMerchantList,
+        run:run
     } = DropDownMerchantAdapter();
     
+    useEffect(() => {
+        if(props.merchantListDatabase==null || props.merchantListDatabase.datas==null || props.merchantListDatabase.datas.length==0 ){
+            run();
+        }
+    }, []);
+
     useEffect(() => {
         
         if(props.isShowDropDown==true){
@@ -51,10 +59,10 @@ function DropDownMerchantScreen (props: any){
            
            {
 
-              merchantList && merchantList.length>0 &&
+                props.merchantListDatabase && props.merchantListDatabase.datas.length>0 &&
               <ul className="dropdown-menu" aria-labelledby="dropdownMenuLink" style={props.isShowDropDown==true ? {display:"block"} : {display:"none"} }>
                     {
-                        merchantList.map(function(item:IMerchantList, i:number){
+                        props.merchantListDatabase.datas.map(function(item:IMerchantList, i:number){
                             // let data = props.merchantList.datas.filter((x:IMerchantList)=>{ return x.id==item.merchant_id});
                             if(item && item.is_hide==1){
                                 return  <li onClick={()=>props.setIsShowDropDown(false)}>
@@ -85,6 +93,7 @@ const mapStateToProps = (state: any) => {
     return {
         param: state.paramReducer,
         merchantList: state.merchantListReducer,
+        merchantListDatabase:state.merchantListDatabaseReducer
     }
   }
 
@@ -94,7 +103,8 @@ const mapDispatchActionToProps = (dispatch: any) => {
       // dispatching plain actions
       getParam: () => dispatch(getParam),
       getMerchantList: () => dispatch(getMerchantList),
-      updateParam: (value: any) => dispatch(updateParam(value))
+      updateParam: (value: any) => dispatch(updateParam(value)),
+      getMerchantListDatabase: () => dispatch(getMerchantListDatabase),
     }
   }
 

@@ -24,11 +24,10 @@ function CouponListScreen (props: any){
     } = CouponListAdapter();
 
     
-
-    const {
-        merchantList, setMerchantList,
-        getMerchantList:getMerchantList
-    } = MerchantListAdapter();
+    // const {
+    //     merchantList, setMerchantList,
+    //     getMerchantList:getMerchantList
+    // } = MerchantListAdapter();
 
 
     const {
@@ -56,11 +55,10 @@ function CouponListScreen (props: any){
                 setId(data[0].Id);
                 getCouponByMerchant(false,keyword,data[0].Id,pageSize,1,props.merchantcode);
             }
-          }   
-          if (props.merchantListDatabase!=null && props.merchantcode!='' && props.merchantListDatabase.datas.length==0){
-            run();
-          }
-    }, [props.merchantcode,props.merchantList]);
+          }  
+         
+          
+    }, [props.merchantcode,props.merchantListDatabase]);
 
 
     return (

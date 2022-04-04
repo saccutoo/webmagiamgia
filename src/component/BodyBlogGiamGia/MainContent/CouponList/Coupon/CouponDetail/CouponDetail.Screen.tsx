@@ -31,7 +31,6 @@ function CouponDetailScreen (props: any){
   // }, []);
 
   const showCode = (data: any) => {
-    debugger
     const value=merchant.coupon_code ? merchant.coupon_code:""
     navigator.clipboard.writeText(value?.toString());
     toast.success("Copy mã thành công!");
